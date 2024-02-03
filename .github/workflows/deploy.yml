@@ -15,12 +15,12 @@ steps:
         node-version: '16'
     - name: Build and push Docker image
       run:
-        docker build -t dummy-server
+        docker build -t dummy-server .
         docker tag dummy-server:latest ${{ secrets.DOCKER_REPO_URL }}/dummy-server:latest
         docker login -u ${{ secrets.DOCKER_USERNAME }} -p {{ secrets.DOCKER_PASSWORD }}
         docker push ${{ secrets.DOCKER_REPO_URL }}/dummy-server:latest
     - name: SSH into instance and deploy
-      uses: appleboy/ssh-action master
+      uses: appleboy/ssh-action@main
       with:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USERNAME }}
