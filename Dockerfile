@@ -5,5 +5,5 @@ WORKDIR /app
 #... Copying files, installing dependies ...
 # Expose the port your app is running on (e.g.,3000)
 Expose 3000
-# Define the command to run youe Node.js application
+# Define the command to run youe Node.js application.
 CMD [ "node","index.js"]
