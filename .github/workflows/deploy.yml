@@ -16,7 +16,7 @@ steps:
     - name: Build and push Docker image
       run:
         docker build -t dummy-server
-        docker tag dummy-server:latest ${{ secrets.DOCKER_REPO_URL }}
+        docker tag dummy-server:latest ${{ secrets.DOCKER_REPO_URL }}/dummy-server:latest
         docker login -u ${{ secretes.DOCKER_USERNAME }} -p {{ secretes.DOCKER_PASSWORD }}
         docker push ${{ secretes.DOCKER_REPO_URL }}/dummy-server:latest
     - name: SSH into instance and deploy
